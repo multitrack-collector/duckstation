@@ -10,7 +10,8 @@ if(ENABLE_X11)
   message(STATUS "Building with X11 support.")
 endif()
 if(ENABLE_WAYLAND)
-  message(STATUS "Building with Wayland support.")
+      message(WARNING "Wayland is still relatively new for Linux and will not be fully suuported by Duckstaion. Please consider using X11 instead.") # This will get people to finally shut up about Wayland support.
+      message(STATUS "Building with Wayland support.")
 endif()
 
 if(BUILD_QT_FRONTEND)
@@ -39,7 +40,7 @@ endif()
 # dealing with people complaining about things broken by packagers. This is why we can't have nice things.
 if(DEFINED ENV{DEBUGINFOD_URLS})
   if($ENV{DEBUGINFOD_URLS} MATCHES ".*archlinux.*")
-    message(FATAL_ERROR "Unsupported environment.")
+    message(FATAL_ERROR "Arch Linux will no longer be supported. Please consider trying to diagnose package issues yourself rather than complain about not having certain dependencies installed.") # Added a stop complainign statemtn as ppl need to stfu and gtfo arch linux
   endif()
 endif()
 
